@@ -16,7 +16,11 @@ Learning angular needs few basic skills
 
 ## Setup
 
-### NodeJS:
+### IDE
+
+VS Code https://code.visualstudio.com/
+
+### NodeJS
 
 Go to nodejs.org and download the latest **stable** version, Uninstall old versions on your machine first.
 
@@ -62,5 +66,19 @@ Answer few question to step project
 ```
 
 **It will take few minutes (For first time it will take more than 5 - 10 minutes)** 
+
+Once It's completed run below command to run the application 
+```sh
+cd <my-app>
+ng serve
+```
+
+### Development Tools 
+Below tools help in increase in productive etc.
+1. Setup your Angular Devtools https://angular.io/guide/devtools 
+2. TODO Add VS code plugin's 
+
+
+
 
 
