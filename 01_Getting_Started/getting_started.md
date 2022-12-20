@@ -76,7 +76,10 @@ ng serve
 ### Development Tools 
 Below tools help in increase in productive etc.
 1. Setup your Angular Devtools https://angular.io/guide/devtools 
-2. TODO Add VS code plugin's 
+2. Add below VS Code plugin 
+   - Angular Language Service https://marketplace.visualstudio.com/items?itemName=Angular.ng-template
+   - Nx Console https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console
+   - Angular Schematics https://marketplace.visualstudio.com/items?itemName=cyrilletuzi.angular-schematics
 
 
 
