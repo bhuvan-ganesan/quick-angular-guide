@@ -41,6 +41,10 @@ Alternative ways to Install / Update **npm**:
 npm install -g npm  
 ```
 Installing the **Angular CLI**:
+
+. https://angular.io/cli
+. https://www.freecodecamp.org/news/npm-cheat-sheet-most-common-commands-and-nvm/
+
 ```sh
 npm install -g @angular/cli 
 ```
@@ -80,6 +84,11 @@ Below tools help in increase in productive etc.
    - Angular Language Service https://marketplace.visualstudio.com/items?itemName=Angular.ng-template
    - Nx Console https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console
    - Angular Schematics https://marketplace.visualstudio.com/items?itemName=cyrilletuzi.angular-schematics
+3. List of all supported version https://gist.github.com/LayZeeDK/c822cc812f75bb07b7c55d07ba2719b3  
+4. About Package.json https://heynode.com/tutorial/what-packagejson/#:~:text=Recap-,The%20package.,entry%20point%20to%20our%20package
+5. About git https://git-scm.com/docs/git
+6. About gitignore https://git-scm.com/docs/gitignore#:~:text=A%20gitignore%20file%20specifies%20intentionally,gitignore%20file%20specifies%20a%20pattern.
+
 
 
 
