@@ -3,7 +3,7 @@
 | S.NO |                                                                       Topics                                                                        |
 | ----- | :-------------------------------------------------------------------------------------------------------------------------------------------------: |
 | 01    |                                                             [Introduction](./01_Getting_Started/getting_started.md)                                                             |
-| 02    |                                                             [Typescript]()
+| 02    |                                                             [Typescript](./02_TypeScript/typescript.md)
 | 03    |                                                             [Angular Basics]()|
 | 04    |                                                             [Components & Date Binding]()|
 | 05    |                                                             [Directives]()|
