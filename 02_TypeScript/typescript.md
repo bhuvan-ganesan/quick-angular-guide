@@ -155,7 +155,16 @@ let john = {
 
 console.log(getFullName(john));
 ```
+ ## Generics
 
+ TypeScript generics allow you to write the reusable and generalized form of functions, classes, and interfaces. In this tutorial, you’re focusing on developing generic functions.
+
+ ```sh
+function getRandomElement<T>(items: T[]): T {
+    let randomIndex = Math.floor(Math.random() * items.length);
+    return items[randomIndex];
+}
+ ```
 
 ### Useful links
 - https://www.typescriptlang.org/
