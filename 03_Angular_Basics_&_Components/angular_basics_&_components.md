@@ -83,6 +83,5 @@ export class CountryCardComponent {
 
 
 
-
 ### Useful links
 - https://angular.io/guide/component-overview
