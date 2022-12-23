@@ -49,6 +49,7 @@ To create via CLI
 
 ```sh
 ng generate component <component name>
+ng g c <component name>
 ```
 ![ng generate component](./ng_compoment_generate_pic.png)
 
