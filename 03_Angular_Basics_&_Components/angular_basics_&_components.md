@@ -60,9 +60,11 @@ It update app.module file with imports array with new created component
 
 ![ng generate component](./update_in_app_module.png)
 
-Details about component class
+ app.module class
 
 ![details component](./update_in_app_module.png)
+
+
 
 ```sh
 import { Component } from '@angular/core';<----- Import
