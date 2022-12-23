@@ -1,5 +1,11 @@
 .full-background{
-    width: 500px;
-    height: 500px;
     background-color: cadetblue;
+}
+
+.countries {
+    width: 100%;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1.2rem 1.8rem;
+    display: grid;
+    position: relative;
 }

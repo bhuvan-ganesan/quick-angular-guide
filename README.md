@@ -5,7 +5,7 @@
 | 01    |                                                             [Introduction](./01_Getting_Started/getting_started.md)                                                             |
 | 02    |                                                             [Typescript](./02_TypeScript/typescript.md)
 | 03    |                                                             [Angular Basics & Components]()|
-| 04    |                                                             [ Date Binding]()|
+| 04    |                                                             [Date Binding]()|
 | 05    |                                                             [Directives]()|
 | 06    |                                                             [Services & Depending Injection]()|
 | 07    |                                                             [Routing]()|
