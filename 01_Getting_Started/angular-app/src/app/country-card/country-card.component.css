@@ -24,3 +24,7 @@
     align-self: center;
     font-size: 1.6rem;
 }
+
+.country:hover {
+    transform: translateY(-3px);
+  }
