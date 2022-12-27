@@ -8,15 +8,15 @@
 ## Angular Data Binding
 where the data stays in sync between the component and the view. Whenever the user updates the data in the view, Angular updates the component. When the component gets new data, the Angular updates the view.
 
-###Data Binding in Angular
+**Data Binding in Angular**
 
 The data binding in Angular can be broadly classified into two groups. One way binding or two-way binding
 
-###One way binding
+**One way binding**
 
 In one way binding data flows from one direction. Either from view to component or from component to view.
 
-###From Component to View
+**From Component to View**
 
 To bind data from component to view, we make use of **Interpolation** & **Property Binding**.
 
