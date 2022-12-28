@@ -201,7 +201,7 @@ getClass() {
 <button [style.color]="status=='error' ? 'red': 'blue'">Button 1</button> 
 
 #  Units
-# The style property name can be written in either dash-case (font-size), as shown in above example, or camelCase (fontSize) as shown below.
+The style property name can be written in either dash-case (font-size), as shown in above example, or camelCase (fontSize) as shown below.
 
 <button [style.font-size.px]="'20'" >Big Button</button>
 <button [style.fontSize.px]="'20'" >Big Button</button>
