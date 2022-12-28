@@ -19,7 +19,7 @@ In one way binding data flows from one direction. Either from view to component 
 **From Component to View**
 
 To bind data from component to view, we make use of **Interpolation** & **Property Binding**.
-<hr />
+
 ## Interpolation 
 Interpolation allows us to include expressions as part of any string literal, which we use in our HTML. The angular evaluates the expressions into a string and replaces it in the original string and updates the view. You can use interpolation wherever you use a string literal in the view
 
@@ -122,7 +122,7 @@ TypeError: Cannot read property 'itemName' of undefined
  
 
 ```
-<hr />
+
 ## Property binding
 
 Property binding is one way from component to view. It lets you set a property of an element in the view to property in the component. You can set the properties such as class, href, src, textContent, etc using property binding. You can also use it to set the properties of custom components or directives (properties decorated with @Input).
@@ -151,7 +151,7 @@ There are few element property names in the camel case, while their correspondin
 
 **Remember the brackets**
 The brackets, [], tell Angular to evaluate the template expression. If you omit the brackets, Angular treats the expression as a constant string and initializes the target property with that string:
-<hr />
+
 ## Class binding 
 Class binding is used to add or remove classes to and from the HTML elements. You can add CSS Classes conditionally to an element, hence creating a dynamically styled element.
 
@@ -190,7 +190,7 @@ getClass() {
  hasError:false;
 <div [class.red]="hasError" [class.size20]="hasError">Test</div>
 ```
-<hr />
+
 ## Style binding Example
 ```sh
 <p [style.color]="'red'">Give me red</p>
@@ -218,7 +218,7 @@ The style property name can be written in either dash-case (font-size), as shown
 
 there are alternative binding like **ngClass** , **ngStyle** will learn in directive session 
 
-<hr />
+
 ## From View to Component
 
 ### Event Binding
@@ -292,7 +292,6 @@ Learn all event from https://developer.mozilla.org/en-US/docs/Web/Events
 ### Custom events with EventEmitter
 Directives & components can also raise events with EventEmitter. Using EventEmiiiter you can create a property and raise it using the EventEmitter.emit(payload). The Parent component can listen to these events using the event binding and also read the payload using the $event argument.
 
-<hr />
 
 ## Two way data binding
 

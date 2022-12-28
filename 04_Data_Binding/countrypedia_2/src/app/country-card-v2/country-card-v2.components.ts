@@ -14,8 +14,8 @@ import { Component } from '@angular/core';
 <p>Welcome {{name1.value}} </p>
 
 <div class="{{divClass}}" >
-                  <div class="country__flag" style="background-image: url({{countryData?.url}});"></div>
-                  <div class="country__name" >{{countryData?.name}}</div>
+                  <div class="country__flag" style="background-image: url({{countryData.url}});"></div>
+                  <div class="country__name" >{{countryData.name}}</div>
     </div>
 
 
@@ -23,7 +23,7 @@ import { Component } from '@angular/core';
 
     <div [className]="'red size20'">Test</div>
 
-    <div [className]="hasError() ? 'red' : 'size20'"> conditonal operator </div>
+    <div [className]="hasError() ? 'red' : 'size20'"> conditional operator </div>
 
     <div [class.red]="true" [class.size20]="false">Test</div>
 
