@@ -1,1 +1,51 @@
-<p>binding works!</p>
+<button (click)="clickMe(); clickCount1=clickCount">Click Me</button>
+<button on-click=" clickMeLess();">Click Me 2</button>
+<p>You have clicked {{clickCount}}</p>
+<p>You have clicked {{clickCount1}}</p>
+
+<hr/>
+
+<input (input)="handleInput($event)">
+<p>You have entered {{value}}</p>
+
+<hr/>
+
+# Template reference variable
+<input #el (input)="handleInput1(el)">
+<p>You have entered {{val}}</p>
+
+<hr/>
+# Keyup 
+
+<input (keyup)="value1= $any($event.target).value" />
+<p>You entered {{value1}}</p>
+
+<hr/>
+#enter # esc
+<input (keyup.enter)="value3=$any($event.target).value" (keyup.escape)="$any($event.target).value='';value3=''">
+<p>You entered {{value3}}</p>
+
+<hr/>
+
+# key combination
+<input (keyup.control.shift.enter)="value4=$any($event.target).value">
+<p>You entered {{value4}}</p>
+
+
+<hr/>
+Old way for two ways binding 
+
+<input type="text" [value]="name" (input)="name=$any($event.target).value">
+<p> You entered {{name}}</p>
+<button (click)="clearName()">Clear</button>
+
+<hr/>
+[(ngModel)]="name"
+
+<input type="text" name="txt" [(ngModel)]="txt">
+<p> You entered {{txt}}</p>
+<button (click)="clearValue()">Clear</button>
+
+
+
+

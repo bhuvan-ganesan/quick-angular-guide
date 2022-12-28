@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'countrypedia_1';
+
+
+
+x = 0 ;
+clearCount() {
+this.x = 0;
+}
 }
