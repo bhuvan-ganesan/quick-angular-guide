@@ -19,7 +19,7 @@ In one way binding data flows from one direction. Either from view to component 
 **From Component to View**
 
 To bind data from component to view, we make use of **Interpolation** & **Property Binding**.
-
+<hr />
 ## Interpolation 
 Interpolation allows us to include expressions as part of any string literal, which we use in our HTML. The angular evaluates the expressions into a string and replaces it in the original string and updates the view. You can use interpolation wherever you use a string literal in the view
 
@@ -58,7 +58,7 @@ New template expression operators, such as |
 ```sh
 {{getTitle()}}
  
-//Component
+#Component
 title = 'Interpolation';
 getTitle(): string {
      return this.title;
@@ -78,7 +78,7 @@ getTitle(): string {
 <p>100x80 = {{100*80}}</p>
 <p>Largest: {{max(100, 200)}}</p>
  
-//Component
+#Component
 max(first: number, second: number): number {
   return Math.max(first, second);
 }
@@ -90,30 +90,30 @@ max(first: number, second: number): number {
 ```
 **Some Examples**
 ```sh
-//Image source
+#Image source
 <div><img src="{{itemImageUrl}}"></div>
 
-//Href
+#Href
 <a href="/product/{{productID}}">{{productName}}</a>
 
-//Template reference variable
+#Template reference variable
 <label>Enter Your Name</label>
 <input (keyup)="0" #name>
 <p>Welcome {{name.value}} </p>
 
-//NgNonBindable
+#NgNonBindable
 Use ngNonBindable to tell Angular not to compile or bind the contents of the current DOM element. I.e any expression is not evaluated but shown as it is.
 <p>Evaluate: {{variable}}</p>
 <p ngNonBindable>Do not evaluate: {{variable}}</p> 
 <p>Angular uses {{ variable }} syntax for Interpolation</p>
 <p ngNonBindable>Angular uses {{ variable }} syntax for Interpolation</p>
 
-//Pipes
+#Pipes
 <p>uppercase pipe: {{title | uppercase}}</p>
 <p>pipe chain: {{title | uppercase | lowercase}}</p>
 <p>json pipe: {{items | json}}</p>
 
-//Safe navigation operator ( ? )
+#Safe navigation operator ( ? )
 <p>The item name is: {{nullItem.Name}}</p>     
 TypeError: Cannot read property 'itemName' of undefined
 
@@ -122,7 +122,7 @@ TypeError: Cannot read property 'itemName' of undefined
  
 
 ```
-
+<hr />
 ## Property binding
 
 Property binding is one way from component to view. It lets you set a property of an element in the view to property in the component. You can set the properties such as class, href, src, textContent, etc using property binding. You can also use it to set the properties of custom components or directives (properties decorated with @Input).
@@ -151,7 +151,7 @@ There are few element property names in the camel case, while their correspondin
 
 **Remember the brackets**
 The brackets, [], tell Angular to evaluate the template expression. If you omit the brackets, Angular treats the expression as a constant string and initializes the target property with that string:
-
+<hr />
 ## Class binding 
 Class binding is used to add or remove classes to and from the HTML elements. You can add CSS Classes conditionally to an element, hence creating a dynamically styled element.
 
@@ -179,35 +179,35 @@ getClass() {
 }
 <div [className]="getClass()">getClass</div>
 
-// Conditional (Ternary) Operator.
+# Conditional (Ternary) Operator.
 <div [className]="hasError() ? 'red' : 'size20'"> conditonal operator </div>
 ```
 **Class binding with Class**
 ```sh 
 <div [class.red]="true" [class.size20]="true">Test</div>
 
-// Conditionally binding class
+# Conditionally binding class
  hasError:false;
 <div [class.red]="hasError" [class.size20]="hasError">Test</div>
 ```
-
+<hr />
 ## Style binding Example
 ```sh
 <p [style.color]="'red'">Give me red</p>
 <p [style.background-color]="'grey'">some paragraph with grey background</p>
 <button [style.border]="'5px solid yellow'">Save</button
 
-// Conditionally 
+#  Conditionally 
 <button [style.color]="status=='error' ? 'red': 'blue'">Button 1</button> 
 
-// Units
-//The style property name can be written in either dash-case (font-size), as shown in above example, or camelCase (fontSize) as shown below.
+#  Units
+# The style property name can be written in either dash-case (font-size), as shown in above example, or camelCase (fontSize) as shown below.
 
 <button [style.font-size.px]="'20'" >Big Button</button>
 <button [style.fontSize.px]="'20'" >Big Button</button>
 
 
-//Multiple styles
+# Multiple styles
 <p [style.color]="getColor()" 
    [style.font-size.px]="'20'"      
    [style.background-color]="status=='error' ? 'red': 'blue'">
@@ -218,13 +218,204 @@ getClass() {
 
 there are alternative binding like **ngClass** , **ngStyle** will learn in directive session 
 
-
+<hr />
 ## From View to Component
 
 ### Event Binding
+Event binding allows us to bind events such as keystroke, clicks, hover, touche, etc to a method in component. It is one way from view to component. By tracking the user events in the view and responding to it, we can keep our component in sync with the view. For Example, when the user changes to an input in a text box, we can update the model in the component, run some validations, etc. When the user submits the button, we can then save the model to the backend server.
+
+**Syntax**
+```sh
+(target-event)="TemplateStatement"
+
+# We enclose the target event name in parentheses on the left side
+# Assign it to a template statement within a quote on the right side
+
+<button (click)="onSave()">Save</button>
+```
+
+**Example**
+```sh
+<button (click)="clickMe()">Click Me</button>
+<p>You have clicked {{clickCount}}</p>
+
+clickCount=0
+  clickMe() {
+    this.clickCount++;
+  }
+```
+**Alternative**
+```sh
+# on- alter to ()
+<button on-click="clickMe()">Click Me</button>
+# Multiple event handlers
+<button (click)="clickMe() ; clickCount1=clickCount">Click Me</button>
+# $event Payload
+<input (input)="handleInput($event)">
+<p>You have entered {{value}}</p>
+
+value=""
+handleInput(event) {
+  this.value = (event.target as HTMLInputElement).value;
+}
+# Template reference variable
+<input #el (input)="handleInput1(el)">
+<p>You have entered {{val}}</p>
+
+val="";
+handleInput1(element) {
+  this.val=element.value;
+}
+
+# Key event filtering (with key.enter)
+<input (keyup)="value1= $any($event.target).value" />
+<p>You entered {{value1}}</p>
+
+<input (keyup.enter)="value2=$any($event.target).value">
+<p>You entered {{value2}}</p>
+
+<input (keyup.enter)="value3=$any($event.target).value" (keyup.escape)="$any($event.target).value='';value3=''">
+<p>You entered {{value3}}</p>
+
+# Note that we are using $any to cast $event.target to any type.
+# Otherwise, the typescript will raise the error Property ‘value’
+# does not exist on type ‘EventTarget’ Error in Angular
+
+# key combination
+<input (keyup.control.shift.enter)="value4=$any($event.target).value">
+<p>You entered {{value4}}</p>
+
+```
+
+Learn all event from https://developer.mozilla.org/en-US/docs/Web/Events
+
+### Custom events with EventEmitter
+Directives & components can also raise events with EventEmitter. Using EventEmiiiter you can create a property and raise it using the EventEmitter.emit(payload). The Parent component can listen to these events using the event binding and also read the payload using the $event argument.
+
+<hr />
+
+## Two way data binding
+
+Two way data binding means that changes made to our model in the component are propagated to the view and that any changes made in the view are immediately updated in the underlying component data.
+
+Two way data binding is useful in data entry forms. Whenever a user makes changes to a form field, we would like to update our model. Similarly, when we update the model with new data, we would like to update the view as well
+
+**The two way data binding is nothing but both property binding & event binding applied together**
+```sh
+property binding + event binding = Two way data binding
+```
+
+**Example** 
+
+```sh
+<input type="text" [value]="name" (input)="name=$event.target.value">
+<p> You entered {{name}}</p>
+<button (click)="clearName()">Clear</button>
+
+ name=""
+ clearName() {
+   this.name="";
+ }
+```
+// Fix error from above code
+
+### Two-way binding syntax
+
+[()] - Banana in a box syntax, The square indicates the Property binding & parentheses indicates the event binding.
+```sh
+<someElement [(someProperty)]="value"></someElement>
+```
+
+### What is ngModel
+
+The Angular uses the ngModel directive to achieve the two-way binding on HTML Form elements. It binds to a form element like input, select, selectarea. etc.
+
+Internally It uses the ngModel in property, binding to bind to the value property and ngModelChange which binds to the input event.
+
+```sh
+<input type="text" name="value" [(ngModel)]="value">
+
+# Import FormsModule app.module.ts
+import { FormsModule } from '@angular/forms';
+
+# Template
+<input type="text" name="value" [(ngModel)]="value">
+<p> You entered {{value}}</p>
+<button (click)="clearValue()">Clear</button>
+
+# Component
+value="";
+ clearValue() {
+   this.value="";
+ }
+
+```
+
+### Custom Two-way binding
+
+```sh
+# New Counter Component
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+@Component({
+ selector: 'counter',
+ template: `
+     <div>
+       <p>
+         Count: {{ count }}
+         <button (click)="increment()">Increment</button>
+       </p>
+     </div>
+   `
+})
+export class CounterComponent {
+ 
+  @Input() count: number = 0;
+  @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
+ 
+  increment() {
+   this.count++;
+   this.countChange.emit(this.count);
+ }
+}
+
+# Main Component
+<counter [(count)]="count"></counter>
+<p> Current Count {{count}}</p>
+<button (click)="clearCount()">Clear</button>
+
+count = 0 
+clearCount() {
+this.count = 0;
+}
+
+```
+## Child/Nested Components in Angular
+
+The Angular follows component-based Architecture, where each Angular Component manages a specific task or workflow. Each Component is an independent block of the reusable unit.
+
+In real life, angular applications will contain many Angular Components. The task of the root component is to just host these child components. These child components, in turn, can host the more child components creating a Tree-like structure called Component Tree.
+
+### NgModelChange & Change Event in Angular
+we will learn it in Form session 
+
+NgModelChange is an Angular specific event, which we can use to listen for changes to the user input. It is the @Output property of the ngModel directive, Hence we need to use it along with it. ngModle raises the NgModelChange event, whenever the model changes. Another way to listen for change is to use the change DOM event. We also learn how to use them and also the difference between change & ngModelChang
+
+https://angular.io/api/forms/NgModel
+
+
+
+
+
+
+
+
+
+
 
 
 
 ### Useful links
 - https://angular.io/guide/binding-overview
 - https://angular.io/guide/binding-syntax
+- https://developer.mozilla.org/en-US/docs/Web/Events
+- https://angular.io/api/forms/NgModel
