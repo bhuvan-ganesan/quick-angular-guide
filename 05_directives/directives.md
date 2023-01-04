@@ -31,7 +31,7 @@ The HTML template that defines our View. It tells Angular how to render the Comp
 
 Structural directives can change the DOM layout by adding and removing DOM elements. All structural Directives are preceded by **Asterisk symbol**
 
-####ngIf
+#### ngIf
 
 ngIf is an Angular Structural Directive, which allows us to add/remove DOM Element based on some condition. 
 
@@ -243,7 +243,7 @@ app.component.html
 ```
 
 
-####ngFor
+#### ngFor
 
 ngFor directive iterates over a collection of data like an array, list, etc, and creates an HTML element for each of the items from an HTML template. It helps us to build lists or tables to display tabular data in a nice way. In this tutorial, we will look at the syntax and how to use ngFor to display a list of movies using example code. The ngFor also exports several local variables like Index, First, Last, odd, even & trackby.etc. 
 
