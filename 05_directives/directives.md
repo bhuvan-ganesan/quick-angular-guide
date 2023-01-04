@@ -337,6 +337,15 @@ app.component.html
 </div>
 ```
 
+### Attribute Directives
+An Attribute or style directive can change the appearance or behavior of an element.
+
+**ngModel**
+The ngModel directive is used the achieve the two-way data binding. We have covered ngModel directive in Data Binding in Angular Tutorial
+
+**ngClass**
+The ngClass is used to add or remove the CSS classes from an HTML element. Using the ngClass one can create dynamic styles in HTML pages
+
 
 ### Useful links
 - https://angular.io/api/common/NgIf
