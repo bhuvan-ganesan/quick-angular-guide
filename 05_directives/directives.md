@@ -27,7 +27,7 @@ The CSS styles or style sheets, that this component needs. Here we can use eithe
 **template/templateUrl**
 The HTML template that defines our View. It tells Angular how to render the Component’s view. The templates can be inline (using a template) or we can use an external template (using a templateUrl). The Component can have only one template. You can either use inline template or external template and not both
 
-###Structural Directives
+### Structural Directives
 
 Structural directives can change the DOM layout by adding and removing DOM elements. All structural Directives are preceded by **Asterisk symbol**
 
