@@ -352,3 +352,5 @@ The ngClass is used to add or remove the CSS classes from an HTML element. Using
 - https://angular.io/api/common/NgSwitch
 - https://angular.io/api/common/NgSwitchDefault
 - https://angular.io/api/common/NgSwitchCase
+- https://angular.io/api/common/NgFor
+- https://angular.io/api/core/TrackByFunction

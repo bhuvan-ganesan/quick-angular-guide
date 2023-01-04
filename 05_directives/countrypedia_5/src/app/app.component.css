@@ -1,0 +1,15 @@
+.countries {
+    width: 100%;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1.2rem 1.8rem;
+    display: grid;
+    position: relative;
+}
+
+.country__flag, .country__flag svg {
+    width: 4.4rem;
+    background-position: 50%;
+    background-size: cover;
+    border-radius: 3px;
+    margin: 0.4rem;
+}
