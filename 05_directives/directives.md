@@ -337,6 +337,7 @@ app.component.html
 </div>
 ```
 **Trackby in ngFor**
+
 We usengFor to display a iterable items like array in a list or tabular format. For Example the following code iterates over the movies collection and displays each movie inside an ul
 ```sh
  <ul>
