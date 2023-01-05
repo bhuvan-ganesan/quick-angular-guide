@@ -336,16 +336,395 @@ app.component.html
     </div>
 </div>
 ```
+**Trackby in ngFor**
+We usengFor to display a iterable items like array in a list or tabular format. For Example the following code iterates over the movies collection and displays each movie inside an ul
+```sh
+ <ul>
+    <li *ngFor="let movie of movies">
+      {{ movie.title }} - {{movie.director}}
+    </li>
+  </ul>
+```
+The Angular creates a li element for each movie. So if there are n number of movies, the angular inserts the n number of li nodes into the DOM
+
+But the data will not remain constant. The user will add a new movie, delete a movie, sort the list in a different order, or simply refresh the movie from the back end. This will force the angular to render the template again.
+
+The easiest way to achieve that is to remove the entire list and render the DOM again. But this is inefficient and if the list is large it is a very expensive process.
+
+To avoid that the Angular uses the object identity to track the elements in the collection to the DOM nodes. Hence when you add an item or remove an item, the Angular will track it and update only the modified items in the DOM.
+
+But if you refresh the entire list from the back end, it will replace the objects in the movie collection with the new objects. Even if the movies are the same, Angular will not be able to detect as the object references have changed. Hence it considers them new and renders them again after destroying the old ones.
+
+Example 
+```sh
+import { Component, OnInit } from '@angular/core';
+ 
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent implements OnInit {
+  title: string = "Top 5 Movies";
+  
+  movies=[];
+ 
+  mTitle:string="";
+  mDirector:string="";
+ 
+  ngOnInit() {
+    this.Refresh();
+  }
+ 
+  remove(i) {
+    this.movies.splice(i,1);
+  }
+ 
+  addMovie() {
+    this.movies.push({ title: this.mTitle, director: this.mDirector})
+    this.mTitle=""
+    this.mDirector=""
+  }
+ 
+  Refresh() {
+    console.log("refresh")
+    this.movies = [
+      { title: 'Zootopia', director: 'Byron Howard, Rich Moore'},
+      { title: 'Batman v Superman: Dawn of Justice', director: 'Zack Snyder'},
+      { title: 'Captain American: Civil War', director: 'Anthony Russo, Joe Russo'},
+      { title: 'X-Men: Apocalypse', director: 'Bryan Singer'},
+      { title: 'Warcraft', director: 'Duncan Jones'},
+    ]
+  }
+}
+ 
+class Movie {
+  title: string;
+  director: string;
+}
+
+
+
+<h1> {{title}} </h1>
+ 
+<ul>
+  <li *ngFor="let movie of movies; let i=index;">
+    {{i}}. {{ movie.title }} - {{movie.director}} <button (click)="remove(i)">remove</button>
+  </li>
+</ul>
+ 
+<button (click)="Refresh()">Refresh</button> <br>
+ 
+Title     : <input type="text" [(ngModel)]="mTitle"> 
+Director  : <input type="text" [(ngModel)]="mDirector"> 
+<button  (click)="addMovie()">Add</button>
+
+```
+To Solve above issue of rerender trackBy option that returns a unique id for each item. The ngFor will use the unique id returned by the trackBy function to track the items. Hence even if we refresh the data from the back end, the unique id will remain the same and the list will not be rendered again.
+
+```sh
+trackByFn(index, item) {
+    return item.title;
+  }
+
+ <li *ngFor="let movie of movies; let i=index;trackBy: trackByFn;"> 
+
+# Trackby multiple fields
+  trackByFnMultipleFields(index, item) {
+    return item.title + item.director;
+  }
+ <li *ngFor="let movie of movies; let i=index;trackBy: trackByFnMultipleFields;">
+
+```
 
 ### Attribute Directives
 An Attribute or style directive can change the appearance or behavior of an element.
 
-**ngModel**
-The ngModel directive is used the achieve the two-way data binding. We have covered ngModel directive in Data Binding in Angular Tutorial
+#### ngModel
+The ngModel directive is used the achieve the two-way data binding. We have covered ngModel directive in Data Binding session
 
-**ngClass**
+#### ngClass
 The ngClass is used to add or remove the CSS classes from an HTML element. Using the ngClass one can create dynamic styles in HTML pages
 
+```sh
+<element [ngClass]="expression">...</element>
+
+<element [ngClass]="'cssClass1 cssClass2'">...</element>
+
+
+.red { color: red; }
+.size20 { font-size: 20px; }
+
+<div [ngClass]="'red size20'"> Red Text with Size 20px </div>
+```
+
+You can also use the ngClass without a square bracket. In that case, the expression is not evaluated but assigned directly to the class attribute. We also need to remove the double quote around the expression as shown below
+
+```sh
+<div class="row">     
+    <div ngClass='red size20'>Red Text with Size 20px </div> 
+</div>
+```
+**NgClass with Array**
+```sh
+<element [ngClass]="['cssClass1', 'cssClass2']">...</element>
+<div [ngClass]="['red','size20']">Red Text with Size 20px </div>
+```
+**NgClass with Object**
+```sh
+<element [ngClass]="{'cssClass1': true, 'cssClass2': true}">...</element>
+<div class="row">     
+  <div [ngClass]="{'red':true,'size20':true}">Red Text with Size 20px</div>
+</div>
+```
+Same way you can use variable like string and array to pass.
+
+**NgClass with Class Object**
+
+```sh
+export class AppComponent
+{
+    cssClass: CssClass = new CssClass();
+}
+class CssClass {
+  red: boolean= true;
+  size20: boolean= true;
+}
+
+<div class="row">
+      <div [ngClass]="cssClass">
+        Red Text with Size 20px : from component as object
+      </div>
+    </div>
+```
+
+#### ngStyle
+
+ngStyle directive allows us to set the many inline style of a HTML element using an expression. The expression can be evaluated at run time allowing us to dynamically change the style of our HTML element.
+
+```sh
+
+<element [ngStyle]="{'styleNames': styleExp}">...</element>
+<some-element [ngStyle]="{'font-size': '20px'}">Set Font size to 20px</some-element>
+
+# For Unit as prefixed
+<element [ngStyle]="{'styleName.unit': widthExp}">...</element>
+<some-element[ngStyle]="{'font-size.em': '3'}">...</some-element>
+```
+**Change Style Dynamically**
+```sh
+color: string= 'red';
+
+<input [(ngModel)]="color" /> 
+<div [ngStyle]="{'color': color}">Change my color</div>
+
+# Condition
+<div [ngStyle]="{'background-color':status === 'error' ? 'red' : 'blue' }"></<div>
+
+# multiple attributes
+<p [ngStyle]="{'color': 'purple',
+               'font-size': '20px',
+               'font-weight': 'bold'}">
+     Multiple styles
+</p>
+```
+
+### Create & Use Custom Directive
+
+The Angular directives help us to extend or manipulate the DOM. We can change the appearance, behavior, or layout of a DOM element using the directives. We will build a four directive example s and show you how to
+
+- Create a custom directive using the @Directive decorator.
+- We will create both custom attribute directive & custom Structural directive.
+- How to setup selectors
+- Pass value to it using the @input.
+- How to respond to user inputs,
+- Manipulate the DOM element (Change the Appearance) etc.
+
+**Creating Custom Attribute Directive**
+
+Create a new file and name it as tt-class.directive.ts. import the necessary libraries that we need.
+
+```sh
+import { Directive, ElementRef, Input, OnInit } from '@angular/core'
+ 
+@Directive({
+  selector: '[ttClass]',
+})
+export class ttClassDirective implements OnInit {
+ 
+  @Input() ttClass: string;
+ 
+  constructor(private el: ElementRef) {
+  }
+ 
+  ngOnInit() {
+    this.el.nativeElement.classList.add(this.ttClass);
+  }
+ 
+}
+
+
+.blue {
+  background-color: lightblue;
+}
+
+<button [ttClass]="'blue'">Click Me</button>
+
+# Add in app.module 
+
+@NgModule({
+declarations: [
+AppComponent,
+ttClassDirective
+],
+```
+
+**Creating Custom Structural Directive**
+
+et us build a Custom Structural directive. Let us mimic the ngIf and create a custom directive, which we name it as ttIf. There is hardly any difference in creating a Attribute or structural directive.
+
+Create a new file and name it as tt-if.directive.ts file and import the relevant modules.
+
+```sh
+import { Directive, ViewContainerRef, TemplateRef, Input } from '@angular/core';
+ 
+@Directive({ 
+  selector: '[ttIf]' 
+})
+export class ttIfDirective  {
+ 
+  _ttif: boolean;
+ 
+  constructor(private _viewContainer: ViewContainerRef,
+            private templateRef: TemplateRef<any>) {
+  }
+ 
+ 
+  @Input()
+  set ttIf(condition) {
+    this._ttif = condition
+    this._updateView();
+  }
+ 
+  _updateView() {
+    if (this._ttif) {
+      this._viewContainer.createEmbeddedView(this.templateRef);
+    }
+    else {
+      this._viewContainer.clear();
+    }
+  }
+ 
+}
+
+# Component class
+import { Component } from '@angular/core';
+ 
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title: string = "Custom Directives in Angular";
+  show=true;
+}
+
+# Template
+<h1> {{title}} </h1>
+ 
+Show Me
+<input type="checkbox" [(ngModel)]="show">
+ 
+<div *ttIf="show">
+  Using the ttIf directive
+</div>
+ 
+<div *ngIf="show">
+  Using the ngIf directive
+</div>
+
+```
+
+Why you need to specify *
+Remove the * from our newly created ttIf directive. And you will get the error message
+
+*ERROR NullInjectorError: StaticInjectorError(AppModule)[NgIf -> TemplateRef]:
+StaticInjectorError(Platform: core)[NgIf -> TemplateRef]:
+NullInjectorError: No provider for TemplateRef!*
+
+We use the *notation to tell Angular that we have a structural directive and we will be manipulating the DOM. It basically tells angular to inject the TemplateRef. To inject the templateRef, the Angular needs to locate the template. The * tells the Angular to locate the template and inject its reference as templateRef
+
+
+**Custom Directive**
+The tooltip directive shows the tip whenever the user hovers over it. The directive uses the HostListener to listen to the mouseenter and mouseleave events.
+The showHint method adds a span element into the DOM and sets its top & left position just below the host element. The removeHint removes it from the DOM.
+
+```sh
+import { Directive, ElementRef, Renderer2, Input, HostListener } from '@angular/core'
+ 
+@Directive({
+  selector: '[ttToolTip]',
+})
+export class ttTooltipDirective {
+ 
+  @Input() toolTip: string;
+ 
+  elToolTip: any;
+ 
+  constructor(private elementRef: ElementRef,
+            private renderer: Renderer2) {
+  }
+ 
+  @HostListener('mouseenter') 
+  onMouseEnter() {
+    if (!this.elToolTip) { this.showHint(); }
+  }
+ 
+  @HostListener('mouseleave') 
+  onMouseLeave() {
+    if (this.elToolTip) { this.removeHint(); }
+  }
+ 
+  ngOnInit() {
+  }
+ 
+  removeHint() {
+    this.renderer.removeClass(this.elToolTip, 'tooltip');
+    this.renderer.removeChild(document.body, this.elToolTip);
+    this.elToolTip = null;
+  }
+ 
+  showHint() {
+ 
+    this.elToolTip = this.renderer.createElement('span');
+    const text = this.renderer.createText(this.toolTip);
+    this.renderer.appendChild(this.elToolTip, text);
+ 
+    this.renderer.appendChild(document.body, this.elToolTip);
+    this.renderer.addClass(this.elToolTip, 'tt-tooltip');
+    
+    let hostPos = this.elementRef.nativeElement.getBoundingClientRect();
+    let tooltipPos= this.elToolTip.getBoundingClientRect();
+ 
+    let top = hostPos.bottom+10 ; 
+    let left = hostPos.left;
+ 
+    this.renderer.setStyle(this.elToolTip, 'top', `${top}px`);
+    this.renderer.setStyle(this.elToolTip, 'left', `${left}px`);
+  }
+}
+
+# Add the following CSS Class
+.tt-tooltip {
+  display: inline-block;
+  border-bottom: 1px dotted black; 
+  position: absolute;
+}
+
+# Template
+<button ttToolTip toolTip="Tip of the day">Show Tip</button> 
+```
 
 ### Useful links
 - https://angular.io/api/common/NgIf
@@ -354,3 +733,5 @@ The ngClass is used to add or remove the CSS classes from an HTML element. Using
 - https://angular.io/api/common/NgSwitchCase
 - https://angular.io/api/common/NgFor
 - https://angular.io/api/core/TrackByFunction
+- https://angular.io/api/common/NgForOf#change-propagation
+- https://angular.io/api/core/Directive
