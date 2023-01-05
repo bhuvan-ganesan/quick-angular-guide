@@ -1,0 +1,27 @@
+<h1> {{title}} </h1>
+ 
+<ul>
+  <li *ngFor="let movie of movies; let i=index;trackBy: trackByFn;">
+    {{fg(i)}}. {{ movie.title }} - {{movie.director}} <button (click)="remove(i)">remove</button>
+  </li>
+</ul>
+ 
+<button (click)="Refresh()">Refresh</button> <br>
+ 
+Title     : <input type="text" [(ngModel)]="mTitle"> 
+Director  : <input type="text" [(ngModel)]="mDirector"> 
+<button  (click)="addMovie()">Add</button>
+
+
+
+<div class="row">
+  <div [ngClass]="cssClass">
+    Red Text with Size 20px : from component as object
+  </div>
+</div>
+
+<div [ngStyle]="{'background-color':status === 'error' ? 'red' : 'blue' }">Bhuvan</div>
+
+
+<input [(ngModel)]="color" /> 
+<div [ngStyle]="{'color': color}">Change my color</div>

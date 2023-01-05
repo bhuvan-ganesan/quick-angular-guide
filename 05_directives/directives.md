@@ -338,7 +338,7 @@ app.component.html
 ```
 **Trackby in ngFor**
 
-We usengFor to display a iterable items like array in a list or tabular format. For Example the following code iterates over the movies collection and displays each movie inside an ul
+We use ngFor to display a iterable items like array in a list or tabular format. For Example the following code iterates over the movies collection and displays each movie inside an ul
 ```sh
  <ul>
     <li *ngFor="let movie of movies">
@@ -520,7 +520,7 @@ color: string= 'red';
 <div [ngStyle]="{'color': color}">Change my color</div>
 
 # Condition
-<div [ngStyle]="{'background-color':status === 'error' ? 'red' : 'blue' }"></<div>
+<div [ngStyle]="{'background-color':status === 'error' ? 'red' : 'blue' }"></div>
 
 # multiple attributes
 <p [ngStyle]="{'color': 'purple',

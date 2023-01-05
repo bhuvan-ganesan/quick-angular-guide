@@ -1,0 +1,19 @@
+<button [bgClass]="'green'">Click Me</button>
+
+<hr>
+
+Show Me
+<input type="checkbox" [(ngModel)]="show">
+ 
+<div *ttIf="show">
+  Using the ttIf directive
+</div>
+ 
+<div *ngIf="show">
+  Using the ngIf directive
+</div>
+
+
+<hr>
+
+<button ttToolTip toolTip="Tip of the day">Show Tip</button> 
