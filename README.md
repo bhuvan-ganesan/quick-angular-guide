@@ -1,7 +1,7 @@
 # Angular Learning Guide
 
-| S.NO |                                                                       Topics                                                                        |
-| ----- | :-------------------------------------------------------------------------------------------------------------------------------------------------: |
+| No |                                                                       Topics                                                                        |
+| ----- | :------------------------------------------------------------------------------: |
 | 01    |                                                             [Introduction](./01_Getting_Started/getting_started.md)                                                             |
 | 02    |                                                             [Typescript](./02_TypeScript/typescript.md)
 | 03    |                                                             [Angular Basics & Components](./03_Angular_Basics_%26_Components/angular_basics_%26_components.md)|
