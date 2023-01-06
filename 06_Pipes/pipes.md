@@ -31,7 +31,7 @@ import { FormsModule } from '@angular/forms';
  
 @Component({
     selector: 'app-root',
-    templateUrl: `<p> Unformatted date : {{toDate }} </p>
+    template: `<p> Unformatted date : {{toDate }} </p>
                   <p> Formatted date : {{toDate | date}} </p>` 
 }) 
 export class AppComponent 
@@ -58,6 +58,7 @@ Check the angular document on [Pipes API](https://angular.io/api?query=pipe)
 To create a custom pipe, first we need to create a pipe class. The pipe class must implement the PipeTransform interface. We also decorate it with @pipe decorator. Give a name to the pipe under name metadata of the @pipe decorator. Finally, we create the transform method, which transforms given value to the desired output
 
 **How to Create Custom Pipes**
+
 To create a Custom Pipe, first, You need to follow these steps
 
 - Create a pipe class
@@ -67,14 +68,16 @@ To create a Custom Pipe, first, You need to follow these steps
 - The first parameter to the transform method is the value to be transferred. The transform method must transform the value and return the result. You can add any number of additional arguments to the transform method.
 - Declare the pipe class in the Angular Module (app.module.ts)
 - Use the custom pipe just as you use other pipes.
-- Now let us create a Temperature converter pipe, which converts temperature from Celsius to Fahrenheit and vice versa.
+
+
+Now let us create a Temperature converter pipe, which converts temperature from Celsius to Fahrenheit and vice versa.
 
 Create a new file temp-convertor.pipe.ts file 
 
 ```sh
 import {Pipe, PipeTransform} from '@angular/core';
  
-@pipe({
+@Pipe({
     name: 'tempConverter'
 })
 export class TempConverterPipe implements PipeTransform {

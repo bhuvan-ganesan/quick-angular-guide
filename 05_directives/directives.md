@@ -726,7 +726,6 @@ export class ttTooltipDirective {
 # Template
 <button ttToolTip toolTip="Tip of the day">Show Tip</button> 
 ```
-
 ### Useful links
 - https://angular.io/api/common/NgIf
 - https://angular.io/api/common/NgSwitch
