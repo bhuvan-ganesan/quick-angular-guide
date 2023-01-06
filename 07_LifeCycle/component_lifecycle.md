@@ -332,3 +332,6 @@ import { GrandChildComponent } from './grand-child.component';
 export class AppModule { }
 
 ```
+### Useful links
+- https://angular.io/guide/lifecycle-hooks
+- https://angular.io/api/core/ChangeDetectionStrategy
