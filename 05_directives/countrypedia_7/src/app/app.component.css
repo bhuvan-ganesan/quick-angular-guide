@@ -1,15 +1,15 @@
 .blue {
-    background-color: lightblue;
-  }
-  .green {
-    background-color: green;
-  }
-  .red {
-    background-color: red;
-  }
+  background-color: lightblue;
+}
+.green {
+  background-color: green;
+}
+.red {
+  background-color: red;
+}
 
-  .tt-tooltip {
-    display: inline-block;
-    border-bottom: 1px dotted black; 
-    position: absolute;
-  }
+.tt-tooltip {
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  position: absolute;
+}
