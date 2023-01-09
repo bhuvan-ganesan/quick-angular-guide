@@ -21,6 +21,7 @@ The Angular Forms module consists of three Building blocks, irrespective of whet
 - FormArray
 
 **FormControl**
+
 A FormControl represents a single input field in an Angular form.
 The FormControl is an object that encapsulates all this information related to the single input element. It Tracks the value and validation status of each of these control
 The FormControl is just a class. A FormControl is created for each form field. We can refer them in our component class and inspect its properties and methods
@@ -42,6 +43,7 @@ firstname.touched     # true if input field is touched
 firstname.valid       # true if the input value has passed all the validation
 ```
 **FormGroup**
+
 FormGroup is a collection of FormControls . Each FormControl is a property in a FormGroup. with the control name as the key.
 
 Often forms have more than one field. It is helpful to have a simple way to manage the Form controls together.
@@ -84,6 +86,7 @@ address.valid      # true if all the child controls passed the validation
 ```
 
 **FormArray**
+
 FormArray is an array of form controls. It is similar to FormGroup except for one difference. In FormGroup each FormControl is a property with the control name as the key. In FormArray is an array of form controls.
 
 ```sh
@@ -115,7 +118,7 @@ In Template-driven approach is the easiest way to build the Angular forms. The l
 
 In Template Driven Forms we specify behaviors/validations using directives and attributes in our template and let it work behind the scenes. All things happen in Templates hence very little code is required in the component class. This is different from the reactive forms, where we define the logic and controls in the component class.
 
-**The Template-driven forms **
+**The Template-driven forms**
 
 - The form is set up using ngForm directive
 - controls are set up using the ngModel directive
