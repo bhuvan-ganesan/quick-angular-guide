@@ -278,3 +278,10 @@ In Reactive Forms or Model-driven approach, the logic of the form is defined in 
 Template-driven forms in Angular allows us to create sophisticated looking forms easily without writing any javascript code. The model-driven forms are created in component class, where Form fields are created as properties of our component class.  This makes it easier to test.
 
 
+
+
+
+### Useful links
+- https://angular.io/guide/forms
+- https://stackblitz.com/run?file=src%2Fapp%2Fhero-form%2Fhero-form.component.html
+
