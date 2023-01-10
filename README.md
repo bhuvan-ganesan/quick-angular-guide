@@ -9,14 +9,11 @@
 | 05    |                                                             [Directives](./05_directives/directives.md)|
 | 06    |                                                             [Pipes](./06_Pipes/pipes.md)|
 | 07    |                                                             [Component Life Cycle Hook](./07_LifeCycle/component_lifecycle.md)|
-| 09    |                                                             [Forms](./08_Forms/forms.md)|
-| 08    |                                                             [Routing]()|
+| 08    |                                                             [Forms](./08_Forms/forms.md)|
+| 09    |                                                             [Routing]()|
 | 10    |                                                             [Services & Depending Injection]()|
 | 11    |                                                             [HTTP]()|
-| 12    |                                                             [Authentication]()|
-| 13    |                                                             [NgModules]()|
-| 14    |                                                             [Code Optimizations]()|
-| 15    |                                                             [Deployment]()|
+| 12    |                                                             [Deployment]()|
 
 
 

@@ -300,7 +300,7 @@ reset(contactForm :NgForm) {
 
 <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
 
-@ViewChild('contactForm',null) contactForm: NgForm;
+@ViewChild('contactForm') contactForm: NgForm;
 
 setTimeout(() => { 
   this.contactForm.setValue(this.contact);

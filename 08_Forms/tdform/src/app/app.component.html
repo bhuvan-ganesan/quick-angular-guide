@@ -1,4 +1,4 @@
-<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+<!-- <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
  
   <p>
     <label for="firstname">First Name</label>
@@ -42,4 +42,59 @@
 <pre>Touched : {{contactForm.touched  }} </pre>
 <pre>Submitted : {{contactForm.submitted  }} </pre>
  
-</form>
+</form> -->
+
+
+<!-- <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+ 
+  <p>
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" #fname="ngModel" [(ngModel)]="contact.firstname">
+  </p>
+ 
+  <p>
+    <label for="lastname">Last Name</label>
+    <input type="text" name="lastname" [(ngModel)]="contact.lastname">
+  </p>
+ 
+  <p>
+    <label for="email">Email </label>
+    <input type="text" id="email" name="email" [(ngModel)]="contact.email">
+  </p>
+ 
+  <p>
+    <label for="gender">Geneder</label>
+    <input type="radio" value="male" name="gender"  [(ngModel)]="contact.gender"> Male
+    <input type="radio" value="female" name="gender" [(ngModel)]="contact.gender"> Female
+  </p>
+ 
+  <p>
+    <label for="isMarried">Married</label>
+    <input type="checkbox" name="isMarried" [(ngModel)]="contact.isMarried">
+  </p>
+ 
+  <select name="country" [(ngModel)]="contact.country">
+    <option [ngValue]="c.id" *ngFor="let c of countryList">
+      {{c.name}}
+    </option>
+  </select>
+ 
+  <p>
+    <button type="submit">Submit</button>
+    <button type="button" (click)="reset(contactForm)">Reset</button>
+  </p>
+
+  
+
+  <pre>Value : {{contactForm.value | json }} </pre>
+  <pre>First Name : {{fname.value}} </pre>
+<pre>Valid : {{contactForm.valid}} </pre>
+<pre>Touched : {{contactForm.touched  }} </pre>
+<pre>Submitted : {{contactForm.submitted  }} </pre>
+ 
+</form> -->
+
+
+<!-- <app-reactive-form-example></app-reactive-form-example> -->
+
+<app-form-builder-example></app-form-builder-example>
