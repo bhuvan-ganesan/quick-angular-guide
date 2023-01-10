@@ -447,6 +447,10 @@ firstname: new FormControl({value: ‘Rahul’, disabled: true}),
 
 firstname: new FormControl('', [Validators.required,Validators.minLength(10)]),
 
+lastname: new FormControl('',[Validators.maxLength(15), Validators.pattern("^[a-zA-Z]+$")]),
+
+email:new FormControl('',[Validators.email,Validators.required]),
+
 ```
 
 **FormGroup**
