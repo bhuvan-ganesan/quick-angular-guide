@@ -725,7 +725,9 @@ export class country {
 
 ```
 
-FormBuilder API makes it easier to work with the reactive forms in Angular. We can make use of the group, array & control methods to build ourFormModel. FormBuilder reduces the code required to write the complex forms.
+**Note on novalidate** - It prevents the browser's native validation to kick in i.e form data will not be validated upon submission. Examples include input where type='email'
+
+**FormBuilder API** makes it easier to work with the reactive forms in Angular. We can make use of the group, array & control methods to build ourFormModel. FormBuilder reduces the code required to write the complex forms.
 
 
 
