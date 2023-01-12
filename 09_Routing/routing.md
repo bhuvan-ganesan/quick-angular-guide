@@ -182,3 +182,4 @@ CHeck the Example project code
 ### Useful links
 
 - https://angular.io/api/router/Router
+- https://angular.io/api/router/CanActivate
