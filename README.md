@@ -10,7 +10,7 @@
 | 06    |                                                             [Pipes](./06_Pipes/pipes.md)|
 | 07    |                                                             [Component Life Cycle Hook](./07_LifeCycle/component_lifecycle.md)|
 | 08    |                                                             [Forms](./08_Forms/forms.md)|
-| 09    |                                                             [Routing]()|
+| 09    |                                                             [Routing](./09_Routing/routing.md)|
 | 10    |                                                             [Services & Depending Injection]()|
 | 11    |                                                             [HTTP]()|
 | 12    |                                                             [Deployment]()|
