@@ -154,6 +154,24 @@ We recommend you use the HTML 5 style (PathLocationStrategy ) as your location s
 - You can take advantage of the server-side rendering, which will make our application load faster, by rendering the pages in the server first before delivering them the client
 - Use the hash location strategy only if you have to support older browsers.
 
+
+### Why Lazy load?
+
+The Angular apps get bigger in size as we add more and more features. The Angular Modules help us to manage our app by creating separate modules for each new feature. But, as the app gets bigger in size, slower it loads. That is because of angular loads the entire application upfront.
+
+The slow loading app does not leave a good impression on the user. By Loading only a part of the app (i.e lazy loading), the app appears to run faster to the user. The faster loading app gives you a performance boost and also results in a good user experience.
+
+### How Lazy loading works
+
+In Angular, the Lazy loading works at the module level. i.e. you can lazy load only the Angular Modules. We cannot lazy load the Individual components.
+
+The Lazy loading works via the Angular Router Module. The loadChildren method of the Angular Router is responsible to load the Modules
+
+We define the modules which we want to lazy load, when we define the routes. Starting from the Angular 8, we have a new syntax for lazy loading.
+
+```sh
+{path: "admin", loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
+```
 ### Example
 
 CHeck the Example project code 
