@@ -11,7 +11,7 @@
 | 07    |                                                             [Component Life Cycle Hook](./07_LifeCycle/component_lifecycle.md)|
 | 08    |                                                             [Forms](./08_Forms/forms.md)|
 | 09    |                                                             [Routing](./09_Routing/routing.md)|
-| 10    |                                                             [Services & Depending Injection]()|
+| 10    |                                                             [Services & Depending Injection](./10_Services%26Dependency_Injection/Services%26Dependency%20_Injection.md)|
 | 11    |                                                             [HTTP]()|
 | 12    |                                                             [Deployment]()|
 
