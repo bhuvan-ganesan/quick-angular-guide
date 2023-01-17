@@ -8,7 +8,7 @@ import { Product } from './product';
 export class ProductService {
 
   public currentProduct!: BehaviorSubject<Object>
-  // public products!: Observable<any>;
+  public products!: Observable<any>;
 
   constructor() { 
     this.currentProduct =  new BehaviorSubject<Object>([
@@ -17,7 +17,7 @@ export class ProductService {
       new Product(3, "Power Bank", 100),
       new Product(4, "Laptop", 1200)
     ]);
-    // this.products = this.currentProduct.asObservable();
+    this.products = this.currentProduct.asObservable();
   }
 
   public addProduct(obj: any) { 

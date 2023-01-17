@@ -181,3 +181,6 @@ export class ProductService {
 - https://angular.io/guide/dependency-injection
 - https://next.angular.io/api/core/Injectable
 - https://rxjs.dev/
+- https://www.youtube.com/watch?v=65Us8NwmYf4
+- https://www.youtube.com/watch?v=T9wOu11uU6U&list=PL55RiY5tL51pHpagYcrN9ubNLVXF8rGVi
+- https://www.youtube.com/watch?v=Byttv3YpjQk

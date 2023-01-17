@@ -7,7 +7,7 @@ import { ProductService } from './product.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit{
   title = 'serviceandDI';
 
   products!: any;
@@ -23,11 +23,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.currentProduct.subscribe(data => {
-      console.log('data', data);
+      console.log('data 1', data);
       this.products = data;
     })
     
   }
+
+
+ 
 
   getProducts() {
     // this.products = this.productService.getProducts();
