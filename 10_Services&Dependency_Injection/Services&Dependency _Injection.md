@@ -180,3 +180,4 @@ export class ProductService {
 - https://angular.io/guide/architecture-services
 - https://angular.io/guide/dependency-injection
 - https://next.angular.io/api/core/Injectable
+- https://rxjs.dev/
