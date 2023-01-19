@@ -1,5 +1,17 @@
 <button (click)="onClickGet()">Fetch by Asia</button>
 <button (click)="onClickGetCode()">Fetch by Code</button>
+<button (click)="clickGetImgFlp()">Fetch by Memes</button>
+
+<p *ngIf="loading" > Loading.... </p>
+
+
+<div *ngFor="let i of images;" style="display:inline;">
+   <img [src]="i.url" [alt]="i.name" width="100px" height="100px" >
+</div>
+
+
+
+
 
 <table class='table'>
   <thead>

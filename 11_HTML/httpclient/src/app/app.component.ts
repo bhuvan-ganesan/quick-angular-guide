@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   loading: boolean = false;
   errorMessage:any;
   countries:any = [];
+  images:any = [];
 
   constructor(private countriesService: CountriesService) {
   }
@@ -30,6 +31,25 @@ export class AppComponent implements OnInit {
 
   onClickGetCode(){
     this.getCountriesByCode();
+  }
+
+  clickGetImgFlp() {
+    this.loading = true;
+    this.errorMessage = "";
+    this.countriesService.getImgFlp().subscribe(
+        (response) => {                           //next() callback
+          console.log('response received', response)
+          this.images = response.data.memes; 
+        },
+        (error) => {                              //error() callback
+          console.error('Request failed with error')
+          this.errorMessage = error;
+          this.loading = false;
+        },
+        () => {                                   //complete() callback
+          console.error('Request completed')      //This is actually not needed 
+          this.loading = false; 
+        })
   }
 
 

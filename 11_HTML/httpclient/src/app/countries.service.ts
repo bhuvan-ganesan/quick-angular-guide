@@ -29,4 +29,9 @@ export class CountriesService {
     // return this.http.get(this.baseURL+ "alpha?codes="+codes);
   }
 
+  getImgFlp(): Observable<any>{
+    //  https://api.imgflip.com/get_memes
+    return this.http.get('https://api.imgflip.com/get_memes');
+  }
+
 }

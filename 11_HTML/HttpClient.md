@@ -371,4 +371,5 @@ https://restcountries.com/v3.1/alpha?codes=col,pe,at
 - https://angular.io/api/common/http/HttpClient
 - https://angular.io/guide/http
 - https://angular.io/api/common/http/HttpRequest
+- https://github.com/public-apis/public-apis
 
