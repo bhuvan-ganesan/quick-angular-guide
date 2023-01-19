@@ -363,7 +363,10 @@ https://restcountries.com/v3.1/alpha?codes=col,pe,at
 **To Study HttpInterceptor**
 - https://angular.io/api/common/http/HttpInterceptor
 
-###
+### Useful links
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP
+- https://developer.mozilla.org/en-US/docs/Web/HTTP
 - https://angular.io/api/common/http/HttpInterceptor
 - https://angular.io/api/common/http/HttpClient
 - https://angular.io/guide/http

@@ -1,0 +1,21 @@
+<button (click)="onClickGet()">Fetch by Asia</button>
+<button (click)="onClickGetCode()">Fetch by Code</button>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Population</th>
+      <th>Code</th>
+      <th>Continent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of countries;">
+      <td>{{c.name.official}}</td>
+      <td>{{c.population}}</td>
+      <td>{{c.cca3}}</td>
+      <td>{{c.continents}}</td>
+    </tr>
+  </tbody>
+</table>
