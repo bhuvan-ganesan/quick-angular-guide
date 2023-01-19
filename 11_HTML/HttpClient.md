@@ -360,4 +360,12 @@ https://restcountries.com/v3.1/alpha?codes=col,pe,at
    }
 ```
 
+**To Study HttpInterceptor**
+- https://angular.io/api/common/http/HttpInterceptor
+
+###
+- https://angular.io/api/common/http/HttpInterceptor
+- https://angular.io/api/common/http/HttpClient
+- https://angular.io/guide/http
+- https://angular.io/api/common/http/HttpRequest
 
